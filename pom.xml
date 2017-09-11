@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.st.tools.spc5.components</groupId>
+  <artifactId>spc5i2c-lcd</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <parent>
+  <groupId>com.st.tools.spc5.components</groupId>
+  <artifactId>com.st.tools.spc5.components.parent</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <relativePath>../../Core/Build/com.st.tools.spc5.components.parent</relativePath>
+  </parent> 
+  <modules>
+    <module>SPC5_I2C_LCD_Repo_Demos</module>
+    <module>SPC5_I2C_LCD_Support_Feature</module>
+    <module>SPC5_I2C_SW_Component</module>
+    <module>SPC5_LCD_Component</module>
+  </modules>
+</project>
