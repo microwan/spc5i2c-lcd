@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+    <extension
+         id="com.st.spc5.hwcomponent.i2c"
+         name="I2C component"
+         point="com.st.tools.spc5.extension.v1">
+        <component
+              headerName="clock.h"
+              hidden="false"
+              icon="rsc/i2c16x16.png"
+              initFunction="clockInit"
+              isPlatform="false">
+            <description>
+                I2C emulation driver, using 2 GPIOs for SDA and SCL signals.
+            </description>
+            <categories>
+               <category
+                     id="HW_Component/I2C">
+               </category>
+            </categories>
+            <configuration>
+               <description>
+                  I2C interface settings. Copyright (C) STMicroelectronics. All rights reserved.
+                  
+               </description>
+               <image
+                     align="left"
+                     file="rsc/i2c92x102.png">
+                  <text>
+                     
+                  </text>
+               </image>
+               <line></line>
+               <group
+                     expanded="true"
+                     name="I2C settings">
+                  <description>
+                     Make sure that you have setup 2 GPIOs, with the same naming convention as bellow:
+
+SDA : used for I2C data line
+SCL : used for I2C clock line
+
+Both of these GPIOs need to have the following settings
+- Digital IO
+- Open Drain
+
+Make sure that you have two pull up resistors connected to +VCC line.
+A 220 ohm value works fine.
+                  </description>
+                  <image
+                        align="center"
+                        file="rsc/i2wiring.png">
+                  </image>
+                  <group
+                        expanded="false"
+                        name="IO settings mapping"
+                        style="collapsable">
+                     <description>
+                        Enter here the pin identifiers used for the I2C pins.
+Make sure that the naming conventions are identical with those used in pinmap wizard.
+                     </description>
+                     <property
+                           editable="true"
+                           name="SDA"
+                           required="false"
+                           type="string">
+                        <override
+                              invalid_message="bad identifier name, please enter the name of an existing pin identifier"
+                              valid="js:doesPinIdentifierExist">
+                        </override>
+                     </property>
+                     <property
+                           editable="true"
+                           name="SCL"
+                           required="false"
+                           type="string">
+                        <override
+                              invalid_message="bad identifier name, please enter the name of an existing pin identifier"
+                              valid="js:doesPinIdentifierExist">
+                        </override>
+                     </property>
+                  </group>
+               </group>
+			   <!--- UNCOMMENT THIS TO ENABLE THE CLOCKTREE
+               <group
+                     expanded="true"
+                     name="Clock tree"
+                     style="collapsable"
+                     wizard="com.st.tools.spc5.wizards.engine.spc560pxx_rla.clocktree">
+                  <property
+                        default="DRUN"
+                        editable="false"
+                        hidden="true"
+                        name="Run Mode"
+                        required="false"
+                        type="string">
+                  </property>
+               </group>
+			   -->
+            </configuration>
+            <requiredFeatures>
+               <requiredFeature
+                     id="com.st.tools.spc5.features.platform.rla.spc560dxx">
+               </requiredFeature>
+            </requiredFeatures>
+        </component>
+    </extension>
+</plugin>

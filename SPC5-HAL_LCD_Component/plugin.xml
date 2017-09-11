@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+    <extension
+         id="com.st.spc5.hwcomponent.lcd"
+         name="LCD component"
+         point="com.st.tools.spc5.extension.v1">
+        <component
+              headerName="clock.h"
+              hidden="false"
+              icon="rsc/lcd16x20.png"
+              initFunction="clockInit"
+              isPlatform="false">
+            <description>
+                LCD driver component, for LCDs based on Hitachi’s HD44780/HD44580 controllers.
+            </description>
+            <categories>
+               <category
+                     id="HW_Component/LCD">
+               </category>
+            </categories>
+            <configuration>
+               <description>
+                  LCD interface settings
+               </description>
+               <image
+                     file="rsc/lcd48x23.png">
+                  <text>
+                     Copyright (C) STMicroelectronics. All rights reserved.
+                  </text>
+               </image>
+               <line></line>
+               <group
+                     expanded="true"
+                     name="LCD settings">
+                  <group
+                        columns="4"
+                        expanded="true"
+                        name="Working mode"
+                        style="collapsable">
+                     <property
+                           default="0"
+                           editable="true"
+                           name="transfer mode"
+                           required="true"
+                           type="enum"
+                           value="i2c,gpio-4bits,gpio-8bits">
+                     </property>
+                     <property
+                           default="0"
+                           editable="true"
+                           name="I2C component"
+                           required="true"
+                           type="enum"
+                           value="PCF8574,PCF8574A">
+                     </property>
+                     <property
+                           default="0"
+                           editable="true"
+                           name="Matrix size"
+                           required="true"
+                           type="enum"
+                           value="5X8,5X11">
+                     </property>
+                     <property
+                           default="1"
+                           editable="true"
+                           name="Number of rows"
+                           required="true"
+                           type="enum"
+                           value="1,2,4">
+                     </property>
+                     <line></line>
+                  </group>
+                  <group
+                        columns="3"
+                        expanded="true"
+                        name="Editing mode"
+                        style="collapsable">
+                     <property
+                           default="0"
+                           editable="true"
+                           name="Show display"
+                           required="true"
+                           style="radio"
+                           type="enum"
+                           value="yes,no">
+                     </property>
+                     <property
+                           default="0"
+                           editable="true"
+                           name="Show cursor"
+                           required="true"
+                           style="radio"
+                           type="enum"
+                           value="yes,no">
+                     </property>
+                     <property
+                           default="1"
+                           editable="true"
+                           name="Cursor direction"
+                           required="true"
+                           style="radio"
+                           type="enum"
+                           value="left,right">
+                     </property>
+                     <property
+                           default="1"
+                           editable="true"
+                           name="blinking"
+                           required="true"
+                           style="radio"
+                           type="enum"
+                           value="on,off">
+                     </property>
+                  </group>
+                  <group
+                        expanded="false"
+                        name="IO settings mapping"
+                        style="collapsable">
+                     <override
+                           editable="test:../working_mode/transfer_mode/value/text() != &apos;i2c&apos;"></override>
+                     <description>
+                        Enter here the pin identifier used for the LCD pins.
+Make sure that the naming conventions are identical with those used in pinmap wizard
+D0-D7 : Data bus lines
+RS:     reset pin
+RW:     read write pin
+E:      enable signal
+                     </description>
+                     <group
+                           name="GPIO 0 to 3"
+                           style="invisible">
+                        <property
+                              editable="true"
+                              name="D0"
+                              required="false"
+                              type="string">
+                           <override
+                                 invalid_message="bad identifier name, please enter the name of an existing pin identifier"
+                                 valid="js:doesPinIdentifierExist">
+                           </override>
+                        </property>
+                        <property
+                              editable="true"
+                              name="D1"
+                              required="false"
+                              type="string">
+                           <override
+                                 invalid_message="bad identifier name, please enter the name of an existing pin identifier"
+                                 valid="js:doesPinIdentifierExist">
+                           </override>
+                        </property>
+                        <property
+                              editable="true"
+                              name="D2"
+                              required="false"
+                              type="string">
+                           <override
+                                 invalid_message="bad identifier name, please enter the name of an existing pin identifier"
+                                 valid="js:doesPinIdentifierExist">
+                           </override>
+                        </property>
+                        <property
+                              editable="true"
+                              name="D3"
+                              required="false"
+                              type="string">
+                           <override
+                                 invalid_message="bad identifier name, please enter the name of an existing pin identifier"
+                                 valid="js:doesPinIdentifierExist">
+                           </override>
+                        </property>
+                        <override
+                              editable="test:../../working_mode/transfer_mode/value/text() = &apos;gpio-8bits&apos;">
+                        </override>
+                     </group>
+                     <group
+                           name="GPIO 4 to 7"
+                           style="invisible">
+                        <property
+                              editable="true"
+                              name="D4"
+                              required="false"
+                              type="string">
+                           <override
+                                 invalid_message="bad identifier name, please enter the name of an existing pin identifier"
+                                 valid="js:doesPinIdentifierExist">
+                           </override>
+                        </property>
+                        <property
+                              editable="true"
+                              name="D5"
+                              required="false"
+                              type="string">
+                           <override
+                                 invalid_message="bad identifier name, please enter the name of an existing pin identifier"
+                                 valid="js:doesPinIdentifierExist">
+                           </override>
+                        </property>
+                        <property
+                              editable="true"
+                              name="D6"
+                              required="false"
+                              type="string">
+                           <override
+                                 invalid_message="bad identifier name, please enter the name of an existing pin identifier"
+                                 valid="js:doesPinIdentifierExist">
+                           </override>
+                        </property>
+                        <property
+                              editable="true"
+                              name="D7"
+                              required="false"
+                              type="string">
+                           <override
+                                 invalid_message="bad identifier name, please enter the name of an existing pin identifier"
+                                 valid="js:doesPinIdentifierExist">
+                           </override>
+                        </property>
+                     </group>
+                     <group
+                           name="Other bits"
+                           style="invisible">
+                        <property
+                              editable="true"
+                              name="RS"
+                              required="false"
+                              type="string">
+                           <override
+                                 invalid_message="bad identifier name, please enter the name of an existing pin identifier"
+                                 valid="js:doesPinIdentifierExist">
+                           </override>
+                        </property>
+                        <property
+                              editable="true"
+                              name="RW"
+                              required="false"
+                              type="string">
+                           <override
+                                 invalid_message="bad identifier name, please enter the name of an existing pin identifier"
+                                 valid="js:doesPinIdentifierExist">
+                           </override>
+                        </property>
+                        <property
+                              editable="true"
+                              name="E"
+                              required="false"
+                              type="string">
+                           <override
+                                 invalid_message="bad identifier name, please enter the name of an existing pin identifier"
+                                 valid="js:doesPinIdentifierExist">
+                           </override>
+                        </property>
+                     </group>
+                  </group>
+               </group>
+            </configuration>
+            <requiredFeatures>
+               <requiredFeature
+                     id="com.st.tools.spc5.features.platform.rla.spc560dxx">
+               </requiredFeature>
+            </requiredFeatures>
+        </component>
+    </extension>
+</plugin>
