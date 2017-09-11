@@ -185,7 +185,7 @@ void clearE(void) {
 void lcdDelayOneMicroSec(void) {
   unsigned int i;
   for (i = 0; i < 12; i++)
-    asm volatile("nop" : : : "memory");
+    asm volatile("se_nop" : : : "memory");
 }
 
 

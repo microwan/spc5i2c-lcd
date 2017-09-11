@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
       id="org.chibios.spc5.components.spc5hal.i2c.lcd.feature"
-      label="SPC5-HAL I2C LCD Components"
+      label="SPC5 I2C LCD Components"
       version="1.0.0.qualifier"
       provider-name="ST Microelectronics">
 
@@ -28,16 +28,21 @@ limitations under the License.
    </license>
 
    <plugin
-         id="org.chibios.spc5.components.hal.lcd"
+         id="com.st.spc5.components.lcd"
          download-size="0"
          install-size="0"
          version="0.0.0"/>
 
    <plugin
-         id="org.chibios.spc5.components.hal.i2c.sw"
+         id="com.st.spc5.components.i2c.sw"
          download-size="0"
          install-size="0"
-         version="0.0.0"
-         unpack="false"/>
+         version="0.0.0"/>
+
+   <plugin
+         id="com.st.spc5.components.demos.i2c_lcd"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"/>
 
 </feature>

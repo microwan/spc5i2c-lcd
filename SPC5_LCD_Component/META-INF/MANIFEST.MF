@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: SPC5-HAL LCD Component
-Bundle-SymbolicName: org.chibios.spc5.components.hal.lcd;singleton:=true
+Bundle-SymbolicName: com.st.spc5.components.lcd;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.core.resources,

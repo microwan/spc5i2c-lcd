@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>SPC5-HAL I2C SW Component</name>
+	<name>SPC5-HAL I2C LCD Repo Demos</name>
 	<comment></comment>
 	<projects>
 	</projects>
@@ -24,5 +24,6 @@
 	<natures>
 		<nature>org.eclipse.pde.PluginNature</nature>
 		<nature>org.eclipse.jdt.core.javanature</nature>
+		<nature>com.st.tools.spc5.app.repo.spc5RepoNature</nature>
 	</natures>
 </projectDescription>

@@ -22,24 +22,24 @@
 void delayOneMicroSec(void) {
 	unsigned int i;
 	for (i = 0; i < 12; i++)
-		asm volatile("nop" : : : "memory");
+		asm volatile("se_nop" : : : "memory");
 }
 
 void delayTwoMicroSec(void) {
 	unsigned int i;
 	for (i = 0; i < 24; i++)
-		asm volatile("nop" : : : "memory");
+		asm volatile("se_nop" : : : "memory");
 }
 void delayThreeMicroSec(void) {
 	unsigned int i;
 	for (i = 0; i < 54; i++)
-		asm volatile("nop" : : : "memory");
+		asm volatile("se_nop" : : : "memory");
 }
 
 void delayFiveMicroSec(void) {
 	unsigned int i;
 	for (i = 0; i < 78; i++)
-		asm volatile("nop" : : : "memory");
+		asm volatile("se_nop" : : : "memory");
 }
 
 void i2cStart(void) {

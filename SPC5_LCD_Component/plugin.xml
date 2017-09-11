@@ -258,7 +258,7 @@ E:      enable signal
             </configuration>
             <requiredFeatures>
                <requiredFeature
-                     id="com.st.tools.spc5.features.platform.rla.spc560dxx">
+                     id="com.st.tools.spc5.features.platform.rla">
                </requiredFeature>
             </requiredFeatures>
         </component>
