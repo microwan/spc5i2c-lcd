@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/com.st.spc5.components.i2c.lcd.feature_1.0.0.qualifier.jar" id="com.st.spc5.components.i2c.lcd.feature" version="1.0.0.qualifier">
+      <category name="IC2LCD"/>
+   </feature>
+   <category-def name="IC2LCD" label="IC2LCD"/>
+</site>

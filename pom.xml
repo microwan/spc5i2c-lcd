@@ -17,5 +17,6 @@
     <module>SPC5_I2C_LCD_Support_Feature</module>
     <module>SPC5_I2C_SW_Component</module>
     <module>SPC5_LCD_Component</module>
+    <module>SPC5_I2C_LCD_Update_Site</module>
   </modules>
 </project>

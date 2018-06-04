@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature id="com.st.spc5.components.i2c.lcd.feature" version="0.0.0">
+      <category name="IC2LCD"/>
+   </feature>
+   <category-def name="IC2LCD" label="IC2LCD"/>
+</site>
