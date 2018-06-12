@@ -11,4 +11,51 @@
   <artifactId>com.st.spc5.components.i2c.lcd.update</artifactId>
   <version>1.0.0-SNAPSHOT</version>
   <packaging>eclipse-update-site</packaging>
+  <properties>
+    <targetdir>../../../../../Lines/composite/components/i2clcd/</targetdir>
+  </properties>
+  <build>
+   <plugins>
+    <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+        <version>1.5.0</version>
+        <configuration>
+          <workingDirectory>${project.build.directory}/site</workingDirectory>
+        </configuration>
+        <executions>
+           <execution>
+            <id>remove</id>
+            <phase>clean</phase>
+            <goals>
+               <goal>exec</goal>
+            </goals>
+            <configuration>
+                <executable>rm</executable>
+                <arguments>
+                  <argument>-fr</argument>
+          <argument>${targetdir}/*</argument>
+          </arguments>
+            </configuration>
+          </execution>
+          <execution>
+            <id>copy</id>
+            <phase>install</phase>
+            <goals>
+               <goal>exec</goal>
+            </goals>
+            <configuration>
+                <executable>cp</executable>
+                <arguments>
+          <argument>-r</argument>
+          <argument>.</argument>
+          <argument>${targetdir}</argument>
+          </arguments>
+            </configuration>
+          </execution>
+        </executions>
+    </plugin>
+  </plugins>
+  </build>
+
 </project>
