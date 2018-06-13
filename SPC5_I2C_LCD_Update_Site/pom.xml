@@ -10,7 +10,7 @@
   <groupId>com.st.tools.spc5.components</groupId>
   <artifactId>com.st.spc5.components.i2c.lcd.update</artifactId>
   <version>1.0.0-SNAPSHOT</version>
-  <packaging>eclipse-update-site</packaging>
+  <packaging>eclipse-repository</packaging>
   <properties>
     <targetdir>../../../../../Lines/composite/components/i2clcd/</targetdir>
   </properties>
@@ -21,7 +21,7 @@
         <artifactId>exec-maven-plugin</artifactId>
         <version>1.5.0</version>
         <configuration>
-          <workingDirectory>${project.build.directory}/site</workingDirectory>
+          <workingDirectory>${project.build.directory}/repository</workingDirectory>
         </configuration>
         <executions>
            <execution>
