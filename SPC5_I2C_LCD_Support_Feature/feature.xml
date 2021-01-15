@@ -3,7 +3,7 @@
       id="com.st.spc5.components.i2c.lcd.feature"
       label="SPC5 I2C LCD Components"
       version="1.0.0.qualifier"
-      provider-name="ST Microelectronics">
+      provider-name="STMicroelectronics">
 
    <description>
       I2C LCD Components for SPC5 Microntrollers.
